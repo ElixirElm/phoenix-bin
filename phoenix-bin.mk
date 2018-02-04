@@ -15,13 +15,3 @@ compile: deps
 	MIX_ENV=prod mix phx.digest
 	MIX_ENV=prod mix compile
 
-RELEASE_FILES=.
-TAR_OPTIONS=
-
-docker-release.tar: compile
-	tar -cf \
-	  $@ $(RELEASE_FILES) $(TAR_OPTIONS)\
-	  --exclude=$@ \
-	  --exclude-backups \
-	  --exclude-vcs \
-	  --exclude-vcs-ignores
